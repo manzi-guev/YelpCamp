@@ -22,7 +22,22 @@ var campgrounds = [
   {
     name: 'Mountain Goats Rest',
     image:
-      'https://images.unsplash.com/photo-1539183204366-63a0589187ab?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+      'https://i2-prod.cambridge-news.co.uk/incoming/article12958592.ece/ALTERNATES/s615/Campsites.jpg'
+  },
+  {
+    name: 'Solmon Creek',
+    image:
+      'https://images.unsplash.com/photo-1508873696983-2dfd5898f08b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    name: 'Granite Hill',
+    image:
+      'https://images.unsplash.com/photo-1510312305653-8ed496efae75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'
+  },
+  {
+    name: 'Mountain Goats Rest',
+    image:
+      'https://i2-prod.cambridge-news.co.uk/incoming/article12958592.ece/ALTERNATES/s615/Campsites.jpg'
   }
 ];
 app.get('/campgrounds', (req, res) => {
