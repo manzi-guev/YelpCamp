@@ -1,7 +1,6 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  Campground = require('../v3/models/campground'),
   mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/yelp_camp', {
