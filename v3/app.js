@@ -1,8 +1,11 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
-  mongoose = require('mongoose');
+  Campground = require('../v3/models/campground'),
+  mongoose = require('mongoose'),
+  seedDb = require('./seeds');
 
+seedDb();
 mongoose.connect('mongodb://localhost/yelp_camp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -10,13 +13,6 @@ mongoose.connect('mongodb://localhost/yelp_camp', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
-var campgroundSchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String
-});
-
-var Campground = mongoose.model('Campground', campgroundSchema);
 // Campground.create(
 //   {
 //     name: 'Granite Hill',
