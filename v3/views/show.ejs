@@ -45,5 +45,8 @@
 
     <img src="<%=campground.image%>" alt="" />
     <p><%=campground.description%></p>
+    <% campground.comments.forEach(function(comment){ %>
+    <p><b><%= comment.author%></b> - <%= comment.text%></p>
+    <% }) %>
   </body>
 </html>
