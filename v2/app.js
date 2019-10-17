@@ -1,9 +1,13 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
+  Campground = require('../v3/models/campground'),
   mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/yelp_camp');
+mongoose.connect('mongodb://localhost/yelp_camp', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
