@@ -1,9 +1,12 @@
 var express = require('express'),
   app = express(),
   bodyParser = require('body-parser'),
+  mongoose = require('mongoose'),
+  passport = require('passport'),
+  LocalStrategy = require('passport-local'),
   Campground = require('../v3/models/campground'),
   Comment = require('../v3/models/comment'),
-  mongoose = require('mongoose'),
+  User = require('./models/user'),
   seedDb = require('./seeds');
 
 seedDb();
