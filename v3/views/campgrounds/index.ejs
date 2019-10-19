@@ -10,7 +10,7 @@
   </head>
   <body>
     <nav class="navbar navbar-default">
-      <div class="container">
+      <div class="">
         <div class="navbar-header">
           <a href="#" class="navbar-brand">YelpCamp</a>
           <button
@@ -25,18 +25,22 @@
         </div>
         <div class="collapse navbar-collapse bs-nav-demo">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="/campgrounds">Home</a></li>
             <li><a href="#">About</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/register">Sign Up</a></li>
+            <%if(!currentUser){ %>
+            <li><a href="/login">LogIn</a></li>
             <li>
-              <a href="/login">Login</a>
+              <a href="/register">Sign Up</a>
             </li>
+            <% } else{ %>
+            <li><a href="#">Signed In As <%= currentUser.username %></a></li>
             <li>
               <a href="/logout">LogOut</a>
             </li>
+            <% } %>
           </ul>
         </div>
       </div>
