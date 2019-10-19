@@ -1,6 +1,54 @@
-<h1>Sign Up</h1>
-<form action="/register" method="POST">
-  <input type="text" name="username" placeholder="username" />
-  <input type="password" name="password" placeholder="password" />
-  <button>Sign Up</button>
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign Up page</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="">
+        <div class="navbar-header">
+          <a href="#" class="navbar-brand">YelpCamp</a>
+          <button
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target=".bs-nav-demo"
+          >
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse bs-nav-demo">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/campgrounds">Home</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <%if(!currentUser){ %>
+            <li><a href="/login">LogIn</a></li>
+            <li>
+              <a href="/register">Sign Up</a>
+            </li>
+            <% } else{ %>
+            <li>
+              <a href="/logout">LogOut</a>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1>Sign Up</h1>
+    <form action="/register" method="POST">
+      <input type="text" name="username" placeholder="username" />
+      <input type="password" name="password" placeholder="password" />
+      <button>Sign Up</button>
+    </form>
+  </body>
+</html>
