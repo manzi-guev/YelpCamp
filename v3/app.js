@@ -73,7 +73,7 @@ app.get('/campgrounds/:id', (req, res) => {
     });
 });
 
-app.get('/campgrounds/:id/comments/new', (req, res) => {
+app.get('/campgrounds/:id/comments/new', isLoggedIn, (req, res) => {
   Campground.findById(req.params.id, function(err, campground) {
     if (err) {
       console.log(err);
@@ -83,7 +83,7 @@ app.get('/campgrounds/:id/comments/new', (req, res) => {
   });
 });
 
-app.post('/campgrounds/:id/comments', function(req, res) {
+app.post('/campgrounds/:id/comments', isLoggedIn, function(req, res) {
   Campground.findById(req.params.id, function(err, campground) {
     if (err) {
       console.log(err);
@@ -129,5 +129,15 @@ app.post(
   }),
   function(req, res) {}
 );
+app.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/campgrounds');
+});
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Yelpcamp server has started`));
