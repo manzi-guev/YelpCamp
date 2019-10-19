@@ -14,7 +14,7 @@ var commentRoutes = require('./routes/comments'),
   campgroundRoutes = require('./routes/campgrounds'),
   authRoutes = require('./routes/index');
 
-seedDb();
+// seedDb(); // seed the database
 mongoose.connect('mongodb://localhost/yelp_camp', {
   useNewUrlParser: true,
   useUnifiedTopology: true
