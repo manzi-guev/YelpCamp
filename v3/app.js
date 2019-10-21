@@ -4,6 +4,7 @@ var express = require('express'),
   mongoose = require('mongoose'),
   passport = require('passport'),
   LocalStrategy = require('passport-local'),
+  methodOverride = require('method-override'),
   Campground = require('../v3/models/campground'),
   Comment = require('../v3/models/comment'),
   User = require('./models/user'),
@@ -22,7 +23,7 @@ mongoose.connect('mongodb://localhost/yelp_camp', {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-
+app.use(methodOverride('_method'));
 //PASSPORT CONFIGURATION
 app.use(
   require('express-session')({
@@ -43,5 +44,6 @@ app.use(function(req, res, next) {
 app.use('/campgrounds', campgroundRoutes);
 app.use(authRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Yelpcamp server has started`));
