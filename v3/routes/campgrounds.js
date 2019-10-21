@@ -63,6 +63,7 @@ router.get('/:id/edit', (req, res) => {
     }
   });
 });
+//UPDATE ROUTE
 router.put('/:id', (req, res) => {
   Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(
     err,
@@ -72,6 +73,17 @@ router.put('/:id', (req, res) => {
       res.redirect('/campgrounds');
     } else {
       res.redirect('/campgrounds/' + req.params.id);
+    }
+  });
+});
+
+//DELETE ROUTE
+router.delete('/:id', (req, res) => {
+  Campground.findByIdAndRemove(req.params.id, function(err) {
+    if (err) {
+      res.redirect('/campgrounds');
+    } else {
+      res.redirect('/campgrounds');
     }
   });
 });
